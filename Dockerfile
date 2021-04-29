@@ -26,10 +26,11 @@ RUN mkdir -p /opt/mendix/buildpack /opt/mendix/build &&\
  
 #COPY cf-mendix-buildpack.zip /tmp/cf-mendix-buildpack.zip
 RUN git clone https://github.com/elgammalqa/cf-mendix-buildpack-custom.git /tmp/cf-mendix-buildpack &&\
-    cp -R cf-mendix-buildpack/. /opt/mendix/buildpack/ &&\
-    rm -rf /tmp/cf-mendix-buildpack &&\
-    chgrp -R 0 /opt/mendix &&\
-    chmod -R g=u /opt/mendix
+    ls /tmp/
+    # cp -R cf-mendix-buildpack/. /opt/mendix/buildpack/ &&\
+    # rm -rf /tmp/cf-mendix-buildpack &&\
+    # chgrp -R 0 /opt/mendix &&\
+    # chmod -R g=u /opt/mendix
 
 # Copy python scripts which execute the buildpack (exporting the VCAP variables)
 COPY scripts/compilation scripts/git /opt/mendix/buildpack/
