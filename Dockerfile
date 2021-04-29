@@ -21,16 +21,15 @@ ARG CF_BUILDPACK=v4.12.0
 # 4. Delete CF buildpack zip archive
 # 5. Update ownership of /opt/mendix so that the app can run as a non-root user
 # 6. Update permissions of /opt/mendix so that the app can run as a non-root user
-RUN mkdir -p /opt/mendix/buildpack /opt/mendix/build &&\
-    echo "CF Buildpack version ${CF_BUILDPACK}"
+
  
-#COPY cf-mendix-buildpack.zip /tmp/cf-mendix-buildpack.zip
-RUN git clone https://github.com/elgammalqa/cf-mendix-buildpack-custom.git /tmp/cf-mendix-buildpack &&\
-    ls /tmp/cf-mendix-buildpack/* &&\
-    cp -R /tmp/cf-mendix-buildpack/. /opt/mendix/buildpack/ &&\
-    rm -rf /tmp/cf-mendix-buildpack &&\
+COPY cf-mendix-buildpack.zip /tmp/cf-mendix-buildpack.zip
+
+RUN mkdir -p /opt/mendix/buildpack /opt/mendix/build &&\
+    echo "CF Buildpack version ${CF_BUILDPACK}" &&\
+    python3 -m zipfile -e /tmp/cf-mendix-buildpack.zip /opt/mendix/buildpack/ &&\
     chgrp -R 0 /opt/mendix &&\
-    chmod -R g=u /opt/mendix
+    chmod -R g=u  /opt/mendix
 
 # Copy python scripts which execute the buildpack (exporting the VCAP variables)
 COPY scripts/compilation scripts/git /opt/mendix/buildpack/
