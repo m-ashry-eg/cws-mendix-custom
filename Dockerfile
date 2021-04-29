@@ -3,7 +3,7 @@
 #
 # Author: Mendix Digital Ecosystems, digitalecosystems@mendix.com
 # Version: 2.1.0
-ARG ROOTFS_IMAGE=amirelgammal/omnix-mendix-bionic:157
+ARG ROOTFS_IMAGE=amirelgammal/omnix-mendix-bionic:186
 
 # Build stage
 FROM ${ROOTFS_IMAGE} AS builder
