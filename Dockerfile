@@ -27,7 +27,7 @@ ARG CF_BUILDPACK=v4.12.0
 
 RUN mkdir -p /opt/mendix/buildpack /opt/mendix/build &&\
     echo "CF Buildpack version ${CF_BUILDPACK}" &&\
-    python3 -m zipfile -e /tmp/cf-mendix-buildpack.test.zip /opt/mendix/buildpack/ &&\
+    python3 -m zipfile -e /tmp/cf-mendix-buildpack.zip /opt/mendix/buildpack/ &&\
     cp -R /opt/mendix/buildpack/cf-mendix-buildpack/. /opt/mendix/buildpack/ &&\
     chgrp -R 0 /opt/mendix &&\
     chmod -R g=u  /opt/mendix
