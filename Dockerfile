@@ -23,7 +23,7 @@ ARG CF_BUILDPACK=v4.12.0
 # 6. Update permissions of /opt/mendix so that the app can run as a non-root user
 
 #COPY cf-mendix-buildpack.zip /tmp/cf-mendix-buildpack.zip
- COPY cf-mendix-buildpack.test2.zip /tmp/cf-mendix-buildpack.zip
+ COPY cf-mendix-buildpack.test3.zip /tmp/cf-mendix-buildpack.zip
 
 RUN mkdir -p /opt/mendix/buildpack /opt/mendix/build &&\
     echo "CF Buildpack version ${CF_BUILDPACK}" &&\
