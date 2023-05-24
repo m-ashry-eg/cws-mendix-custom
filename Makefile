@@ -12,7 +12,7 @@ build-image:
 	docker build \
 	--build-arg BUILD_PATH=code \
 	--build-arg CF_BUILDPACK=$(CF_BUILDPACK_VERSION) \
-	-t amirelgammal/cws:$(VERSION) .
+	-t mashryeg/cws:$(VERSION) .
 
 test-container:
 	tests/test-generic.sh tests/docker-compose-postgres.yml
